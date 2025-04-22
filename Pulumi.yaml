@@ -1,0 +1,10 @@
+name: digitalocean-typescript
+description: Pulumi automation for openziti controlller and edge router deployments to digitalocean in typescript
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: digitalocean-typescript
