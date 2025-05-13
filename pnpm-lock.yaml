@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@koyeb/pulumi-koyeb':
+        specifier: ^0.1.11
+        version: 0.1.11(typescript@5.8.3)
       '@pulumi/digitalocean':
         specifier: ^4.42.0
         version: 4.42.0(typescript@5.8.3)
@@ -42,6 +45,9 @@ packages:
 
   '@js-sdsl/ordered-map@4.4.2':
     resolution: {integrity: sha512-iUKgm52T8HOE/makSxjqoWhe95ZJA1/G1sYsGev2JDKUSS14KAgg1LHb+Ba+IPow0xflbnSkOsZcO08C7w1gYw==}
+
+  '@koyeb/pulumi-koyeb@0.1.11':
+    resolution: {integrity: sha512-cQZH6DFNgT2pbvDYP/HZZnlDdSLbCCAevMN6DfKIY34VyGksoJ3eFht2DEy7nsIoVRUklTq0thK/Pn5Fc/Aubw==}
 
   '@logdna/tail-file@2.2.0':
     resolution: {integrity: sha512-XGSsWDweP80Fks16lwkAUIr54ICyBs6PsI4mpfTLQaWgEJRtY9xEV+PeyDpJ+sJEGZxqINlpmAwe/6tS1pP8Ng==}
@@ -1117,6 +1123,15 @@ snapshots:
   '@isaacs/string-locale-compare@1.1.0': {}
 
   '@js-sdsl/ordered-map@4.4.2': {}
+
+  '@koyeb/pulumi-koyeb@0.1.11(typescript@5.8.3)':
+    dependencies:
+      '@pulumi/pulumi': 3.163.0(typescript@5.8.3)
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+      - ts-node
+      - typescript
 
   '@logdna/tail-file@2.2.0': {}
 

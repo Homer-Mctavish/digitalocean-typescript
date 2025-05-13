@@ -1,0 +1,3 @@
+config:
+  digitalocean-typescript:publicSshKey:
+    secure: AAABAFQWpt3u9qwxg2o+KWZqdGE5n45CK7HIUH71gGYnCbgM/6Zb0hliqKfeeTzhye62vsXLyBZDIve/aCamnfVSiZvcYFppikAG6YzkMD5/9EuoC+HaKAp8yAkIdMnk45bV+TEoO2gsTyxuDotzb7vT9sT8NG8J4/HadRH5rrhIzZrEmxo=

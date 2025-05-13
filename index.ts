@@ -4,6 +4,11 @@ import * as digitalocean from "@pulumi/digitalocean";
 const config = new pulumi.Config();
 const publicKey = config.requireSecret("publicSshKey");
 
+const project = digitalocean.getProject({
+  name: "OpenZiti-Cloud-Overhead",
+});
+
+
 
 // 🔐 SSH Key
 const sshKey = new digitalocean.SshKey("ziti-key", {
@@ -74,6 +79,17 @@ const firewall = new digitalocean.Firewall("ziti-firewall", {
   }),
 });
 
+
+// ✅ Convert resource IDs into DigitalOcean-formatted resource strings
+const resourceIds = pulumi
+  .all([controller.id, edgeRouter.id, firewall.id])
+  .apply(([controllerId]) => [
+    `do:droplet:${controllerId}`,
+    `do:droplet:${edgeRouter.id}`,
+    `do:firewall:${firewall.id}`,
+    // add other DO-formatted resource strings here as needed
+  ]);
+
 // const domain = new digitalocean.Domain("zitinet", {
 //   name: "zitinet.io",
 // });
@@ -84,6 +100,11 @@ const firewall = new digitalocean.Firewall("ziti-firewall", {
 //   name: "controller",
 //   value: controller.ipv4Address,
 // });
+
+new digitalocean.ProjectResources("ziti-project-binding", {
+  project: project.then(p => p.id),
+  resources: resourceIds,
+});
 
 
 
